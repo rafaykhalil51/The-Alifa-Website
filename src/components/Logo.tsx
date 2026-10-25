@@ -10,10 +10,12 @@ export function Logo({
   plate = false,
   priority = false,
   variant = "full",
+  decorative = false,
 }: {
   plate?: boolean;
   priority?: boolean;
   variant?: "full" | "mark";
+  decorative?: boolean;
 }) {
   const mark = variant === "mark";
 
@@ -27,7 +29,7 @@ export function Logo({
     <span className={plate ? "inline-flex rounded-2xl bg-white px-3 py-2 shadow-[0_0_0_1px_rgba(224,176,0,0.45)]" : "inline-flex"}>
       <ImageWithFallback
         src={mark ? siteConfig.logo.markPath : siteConfig.logo.imagePath}
-        alt={siteConfig.name}
+        alt={decorative ? "" : siteConfig.name}
         width={mark ? siteConfig.logo.markWidth : siteConfig.logo.width}
         height={mark ? siteConfig.logo.markHeight : siteConfig.logo.height}
         priority={priority}

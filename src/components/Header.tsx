@@ -93,8 +93,14 @@ export function Header() {
       </div>
       <header className="border-b border-line bg-white/90 shadow-[inset_0_-1px_0_0_rgba(224,176,0,0.45)] backdrop-blur-md">
         <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
-          <Link href="/" aria-label={siteConfig.name} className="min-w-0">
-            <Logo priority variant="mark" />
+          <Link href="/" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
+            <Logo priority variant="mark" decorative />
+            <span className="font-display min-w-0 text-[11px] leading-tight font-semibold tracking-[0.12em] text-ink uppercase sm:text-xs lg:text-[13px]">
+              The Alifa
+              <span className="mt-0.5 block text-[9px] font-medium tracking-[0.14em] text-gold-deep sm:text-[10px] lg:text-[11px]">
+                Educational Consultants
+              </span>
+            </span>
           </Link>
           <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
             {mainNav.map((item) =>

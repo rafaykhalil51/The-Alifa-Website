@@ -104,7 +104,13 @@ export function MobileNavigation({
         className="absolute inset-y-0 right-0 flex w-[min(100%,24rem)] flex-col bg-white shadow-2xl"
       >
         <div className="flex items-center justify-between border-b border-line px-5 py-4">
-          <Logo variant="mark" />
+          <Link href="/" onClick={onClose} className="flex min-w-0 items-center gap-2.5">
+            <Logo variant="mark" decorative />
+            <span className="font-display text-[11px] leading-tight font-semibold tracking-[0.12em] text-ink uppercase">
+              The Alifa
+              <span className="mt-0.5 block text-[9px] font-medium tracking-[0.14em] text-gold-deep">Educational Consultants</span>
+            </span>
+          </Link>
           <button type="button" className="grid h-11 w-11 place-items-center rounded-full border border-line" onClick={onClose} aria-label="Close menu">
             <X className="h-5 w-5" />
           </button>
