@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/*
+  Colors sampled from public/images/logo.png on 26 Oct 2026.
+  Dominant gold bin: #E0B000. Average gold pixels: #E9B502.
+  Bright gold fails contrast on white (about 2:1), so small text uses #7C5A00.
+  Black logo shapes are part of the mark. Do not knock them out.
+*/
+:root {
+  --ink: #14120e;
+  --navy: #12110f;
+  --gold: #e0b000;
+  --gold-deep: #7c5a00;
+  --blue: #7c5a00;
+  --cyan: #e0b000;
+  --canvas: #f6f4ef;
+  --muted: #4e493f;
+  --line: #e4dfd4;
+  --background: var(--canvas);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-navy: var(--navy);
+  --color-blue: var(--blue);
+  --color-cyan: var(--cyan);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-canvas: var(--canvas);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-manrope), "Manrope", "Segoe UI", sans-serif;
+  --font-display: var(--font-space), "Space Grotesk", "Manrope", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-space), "Space Grotesk", "Manrope", sans-serif;
+}
+
+::selection {
+  background: #e0b000;
+  color: #14120e;
+}
+
+:focus-visible {
+  outline: 2px solid #14120e;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px #e0b000;
+}
+
+a,
+button,
+summary,
+[role="button"] {
+  cursor: pointer;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 80;
+  border-radius: 999px;
+  background: #12110f;
+  color: #e0b000;
+  padding: 0.75rem 1rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.gold-glow {
+  background-image:
+    radial-gradient(circle at 12% 0%, rgba(224, 176, 0, 0.28), transparent 34%),
+    radial-gradient(circle at 88% 100%, rgba(224, 176, 0, 0.12), transparent 28%),
+    linear-gradient(rgba(224, 176, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(224, 176, 0, 0.07) 1px, transparent 1px);
+  background-size: auto, auto, 56px 56px, 56px 56px;
+}
+
+.mobile-nav {
+  margin: 0 0 0 auto;
+  height: 100dvh;
+  max-height: 100dvh;
+  width: min(100%, 24rem);
+  max-width: 100%;
+  border: 0;
+  padding: 0;
+  background: #ffffff;
+  color: #14120e;
+}
+
+.mobile-nav::backdrop {
+  background: rgba(18, 17, 15, 0.62);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
